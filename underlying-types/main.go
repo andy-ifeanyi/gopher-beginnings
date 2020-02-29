@@ -2,10 +2,12 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/andy-ifeanyi/gopher-beginnings/underlying-types/measures"
 )
 
 /*
-A defined type and its soure type share the same underlying type.
+A defined type and its source type share the same underlying type.
 */
 
 func main() {
@@ -21,18 +23,24 @@ func main() {
 	)
 
 	var (
-		salt  Gram     = 100
+		spice Gram     = 100
 		rice  Kilogram = 5
 		truck Ton      = 10
 	)
 
-	fmt.Printf("salt: %d, rice: %d, truck: %d\n", salt, rice, truck)
+	fmt.Printf("spice: %d, rice: %d, truck: %d\n", spice, rice, truck)
 
 	// salt = rice // will raise underlying type error.
-	salt = Gram(rice)
+	spice = Gram(rice)
 	rice = Kilogram(truck)
 	//truck = Ton(Gram(int(rice)))
 	truck = Ton(rice)
-	fmt.Printf("salt: %d, rice: %d, truck: %d\n", salt, rice, truck)
+	fmt.Printf("spice: %d, rice: %d, truck: %d\n", spice, rice, truck)
+
+	type iGram measures.Gram
+	var milk iGram = 40
+
+	milk = iGram(spice)
+	fmt.Printf("milk: %d, rice: %d, truck: %d\n", milk, rice, truck)
 
 }

@@ -6,8 +6,16 @@ import "fmt"
 You define own types for two main reasons:
 1. Type safety
 2. Readability
+3. To declare new methods
 
-A defined type inherits its underlying type's operations and methods.
+Note:
+ - methods can only be declared on a defined types.
+ - a defined type doesn't get its source type's methods.
+
+A defined type only gets its underlying type's:
+- representation
+- size
+- range of values
 */
 
 type gram float64
