@@ -7,7 +7,14 @@ import (
 )
 
 func main(){
-	age := os.Args[1]
+	args := os.Args
+
+
+	if len(args) !=2  {
+		fmt.Println("Usage: [age]")
+		return
+	}
+	age := args[1]
 
 	num, err := strconv.Atoi(age)
 
